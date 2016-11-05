@@ -1,5 +1,5 @@
-+# Leaflet-GPX-Map
- +Leaflet map to show gpx tracks with some additional plugins.
+# Leaflet-GPX-Map
+### Leaflet map to show gpx tracks with some additional plugins.
 
 
 Took me about two months to code, starting from zero knowledge about javascript.
