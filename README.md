@@ -1,4 +1,7 @@
-Leaflet map I made for myself to see GPX tracks on the map.
++# Leaflet-GPX-Map
+ +Leaflet map to show gpx tracks with some additional plugins.
+
+
 Took me about two months to code, starting from zero knowledge about javascript.
 Now, around six months later, that I know a little bit about coding and leaflet finally outed version 1.0, I decided to clean and rewrite some of the code and publish it.
 
