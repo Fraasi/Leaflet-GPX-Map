@@ -34,16 +34,16 @@ var map = L.map('map', {fullscreenControl:{
 		callback: setView
 	}
 	]});
-		function showCoordinates (e) {
-			prompt(e.latlng, e.latlng);}
-		function centerMap (e) {
-			map.panTo(e.latlng), 11;}
-		function zoomIn (e) {
-			map.zoomIn(4);}
-		function zoomOut (e) {
-			map.zoomOut(6);}
-		function setView (e) {
-			map.setView([61.5, 23.75], 13);}
+			function showCoordinates (e) {
+				prompt(e.latlng, e.latlng);}
+			function centerMap (e) {
+				map.panTo(e.latlng), 11;}
+			function zoomIn (e) {
+				map.zoomIn(4);}
+			function zoomOut (e) {
+				map.zoomOut(6);}
+			function setView (e) {
+				map.setView([61.5, 23.75], 13);}
 
 var baseMaps = {
 	"OSM": OSM,
@@ -149,6 +149,7 @@ var icons =  {
     startIconUrl: 'images/pin-icon-start.png',
     endIconUrl: 'images/pin-icon-end.png',
     shadowUrl: 'images/pin-shadow.png'};
+
 var tracks = {};
 var gpxdir = "gpx/"; 
 
@@ -170,7 +171,7 @@ for (var l = 0; l < gpxfiles.length; l++){
 	tracks[L.stamp(gpx)] = gpx;
 }
 
-function gpxOnClick() {	
+function gpxOnClick(g) {	
 	gpx.addEventListener("click", function(event){	
 		var gpxClicked = event.target;
 
@@ -194,7 +195,7 @@ function gpxOnClick() {
 	});	 
 };
 
-function setElevationData(gpx){
+function setElevationData(g){
 	el.clear();
 	for (var gpxLayer in gpx._layers){
 		for (var trackLayer in gpx._layers[gpxLayer]._layers){
@@ -211,9 +212,6 @@ function chosenFile(){
 	var txt = "";
 
     if ('files' in chosengpx) {
-        if (chosengpx.files.length == 0) {
-            txt = "Select one or more files.";
-        } else {
             for (var i = 0; i < chosengpx.files.length; i++) {
                 txt += "<br><strong>" + (i+1) + ". file</strong><br>";
                 var file = chosengpx.files[i];
@@ -223,28 +221,27 @@ function chosenFile(){
 					if ('size' in file) {
 						txt += "<b>  size: </b>" + Math.round((file.size / 1024)) + " kb <br>";
 					}
-					
-var layerName = file.name;
-		
-			console.log('file:  ' + file, 'chosengpx.value: ' + chosengpx.value, 'chosengpx.files: ' + chosengpx.files, 'chosengpx: ' + chosengpx);
-var track = new L.GPX(file.value, {async: true}).on('loaded', function(e) {
 
+			var objectURL = window.URL.createObjectURL(file);
+			
+console.log('objectURL: ' + objectURL, file);
+
+var track = new L.GPX(objectURL, {async: true, marker_options: icons}).on('loaded', function(e) {
+
+console.log('this: ' + this,  e.target);
         var gpx = e.target;
 		map.fitBounds(gpx.getBounds());
-		gpxOnClick();
-		layerControl.addOverlay(track, "" + layerName);
-   
+		gpxOnClick(e);
+		layerControl.addOverlay(track, "" + file.name);
+   tracks[L.stamp(gpx)] = gpx;
+   window.URL.revokeObjectURL(file);
 }).addTo(map);
             }
         }
-    }
-    else {
-        if (chosengpx.value == "") {
-            txt += "Select one or more files.";
-        } else {
+    	else {
             txt += "The files property is not supported by your browser!";
-            txt  += "<br>The path of the selected file: " + chosengpx.value; 
-        }}
+            txt  += "<br>The path of the selected file: " + file.value; 
+        }
     document.getElementById("nimi").innerHTML = txt;
-	document.getElementById("title").innerHTML = "<b>" + layerName +"</b>";	
+	document.getElementById("title").innerHTML = "<b>" + file.name +"</b>";	
 }
