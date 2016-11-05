@@ -1,5 +1,5 @@
 //Le Map
-	var OSM_DE = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 18,
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
 	
@@ -46,7 +46,7 @@ var map = L.map('map', {fullscreenControl:{
 				map.setView([61.5, 23.75], 13);}
 
 var baseMaps = {
-	"OSM_DE": OSM_DE,
+	"OSM": OSM,
 	"Landscape": landMap,
 	"Cyclemap": cyclemap,
 	"Darkmap": darkmap
@@ -67,7 +67,7 @@ map.addControl(osmGeocoder);
 L.control.measure({primaryLengthUnit: 'meters', secondaryLengthUnit: 'kilometers', primaryAreaUnit: 'sqmeters', secondaryAreaUnit: 'hectares', activeColor: '#345CAE', completedColor: '#0526A3', position: 'bottomleft'}).addTo(map);
 
 //Minimap		
-var osmUrl='https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
+var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 var osmAttrib='Map data &copy; OpenStreetMap contributors';
 var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib });
 var miniMap = new L.Control.MiniMap(osm2, {minimized: true, toggleDisplay: true, position: 'bottomleft', zoomLevelOffset: -6 }).addTo(map);
