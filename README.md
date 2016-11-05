@@ -9,10 +9,12 @@ I'm still very much a beginner hobbyist at javascript, so all comments are much 
 
 Few example GPX tracks included.
 
+[Live demo here](https://fraasi.github.io/Leaflet-GPX-Map/)
+
+
+Relevant links and plugins used:
 
 https://leafletjs.com
-
-Plugins used:
 
 Leaflet Control OSM Geocoder
 https://github.com/k4r573n/leaflet-control-osm-geocoder
