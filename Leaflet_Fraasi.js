@@ -1,16 +1,16 @@
 //Le Map
-	var OSM_DE = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+	var OSM_DE = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
 	maxZoom: 18,
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
 	
-	landMap = L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://thunderforest.com/">Thunderforest</a>'}),
+	landMap = L.tileLayer('https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="https://thunderforest.com/">Thunderforest</a>'}),
 	
 	cyclemap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://thunderforest.com/">Thunderforest</a>'}),
+	attribution: '&copy; <a href="https://thunderforest.com/">Thunderforest</a>'}),
 	
-	darkmap = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+	darkmap = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
 	
 var map = L.map('map', {fullscreenControl:{
     pseudoFullscreen: true}, 
@@ -67,7 +67,7 @@ map.addControl(osmGeocoder);
 L.control.measure({primaryLengthUnit: 'meters', secondaryLengthUnit: 'kilometers', primaryAreaUnit: 'sqmeters', secondaryAreaUnit: 'hectares', activeColor: '#345CAE', completedColor: '#0526A3', position: 'bottomleft'}).addTo(map);
 
 //Minimap		
-var osmUrl='http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
+var osmUrl='https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png';
 var osmAttrib='Map data &copy; OpenStreetMap contributors';
 var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib });
 var miniMap = new L.Control.MiniMap(osm2, {minimized: true, toggleDisplay: true, position: 'bottomleft', zoomLevelOffset: -6 }).addTo(map);
