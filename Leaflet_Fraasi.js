@@ -1,5 +1,5 @@
 //Le Map
-	var OSM_DE = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+	var OSM_DE = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 18,
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
 	
@@ -9,7 +9,7 @@
 	cyclemap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://thunderforest.com/">Thunderforest</a>'}),
 	
-	darkmap = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+	darkmap = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
 	
 var map = L.map('map', {fullscreenControl:{
@@ -35,15 +35,15 @@ var map = L.map('map', {fullscreenControl:{
 	}
 	]});
 			function showCoordinates (e) {
-			prompt(e.latlng, e.latlng);}
+				prompt(e.latlng, e.latlng);}
 			function centerMap (e) {
-			map.panTo(e.latlng), 11;}
+				map.panTo(e.latlng), 11;}
 			function zoomIn (e) {
-			map.zoomIn(4);}
+				map.zoomIn(4);}
 			function zoomOut (e) {
-			map.zoomOut(6);}
+				map.zoomOut(6);}
 			function setView (e) {
-			map.setView([61.5, 23.75], 13);}
+				map.setView([61.5, 23.75], 13);}
 
 var baseMaps = {
 	"OSM_DE": OSM_DE,
@@ -184,12 +184,11 @@ function gpxOnClick() {
 		
 		//footer info
 		_id('distance').textContent = gpxClicked.get_distance().toFixed(0) / 1000;
-        _id('duration').textContent = gpxClicked.get_duration_string(gpxClicked.get_moving_time().toFixed(4));
+		_id('duration').textContent = gpxClicked.get_duration_string(gpxClicked.get_moving_time().toFixed(4));
 		_id('avgspeed').textContent = gpxClicked.get_moving_speed().toFixed(0);
 	   	_id('elevation-gain').textContent = gpxClicked.get_elevation_gain().toFixed(0);
-        _id('elevation-loss').textContent = gpxClicked.get_elevation_loss().toFixed(0);
-        _id('elevation-net').textContent  = gpxClicked.get_elevation_gain().toFixed(0)
-        - gpxClicked.get_elevation_loss().toFixed(0);	
+		_id('elevation-loss').textContent = gpxClicked.get_elevation_loss().toFixed(0);
+		_id('elevation-net').textContent  = gpxClicked.get_elevation_gain().toFixed(0) - gpxClicked.get_elevation_loss().toFixed(0);	
 		var stoptimee = gpxClicked.get_total_time() - gpxClicked.get_moving_time();
 		_id('stoptime').textContent = (stoptimee * 1.66667e-5).toFixed();
 	});	 
@@ -209,7 +208,7 @@ var chosengpx = document.getElementById("choosegpx");
  	      
 function chosenFile(){
 	var track = false;
-    var txt = "";
+	var txt = "";
 
     if ('files' in chosengpx) {
         if (chosengpx.files.length == 0) {
@@ -227,17 +226,15 @@ function chosenFile(){
 					
 var layerName = file.name;
 		
-		//	console.log(file, chosengpx.value, chosengpx.files);
-var track = new L.GPX(chosengpx.value, {async: true}).on('loaded', function(e) {
+			console.log('file:  ' + file, 'chosengpx.value: ' + chosengpx.value, 'chosengpx.files: ' + chosengpx.files, 'chosengpx: ' + chosengpx);
+var track = new L.GPX(file.value, {async: true}).on('loaded', function(e) {
 
         var gpx = e.target;
 		map.fitBounds(gpx.getBounds());
 		gpxOnClick();
 		layerControl.addOverlay(track, "" + layerName);
    
-}).addTo(map);				
-				
-
+}).addTo(map);
             }
         }
     }
