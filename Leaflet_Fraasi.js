@@ -14,7 +14,7 @@
 	
 var map = L.map('map', {fullscreenControl:{
     pseudoFullscreen: true}, 
-	center: [61.50, 23.75],zoom: 11, layers: [OSM_DE],  contextmenu: true, contextmenuWidth: 125, maxZoom: 19,
+	center: [61.50, 23.75],zoom: 11, layers: [OSM],  contextmenu: true, contextmenuWidth: 125, maxZoom: 19,
     contextmenuItems: [{
         text: 'Show coordinates',
         callback: showCoordinates
@@ -34,16 +34,16 @@ var map = L.map('map', {fullscreenControl:{
 		callback: setView
 	}
 	]});
-			function showCoordinates (e) {
-				prompt(e.latlng, e.latlng);}
-			function centerMap (e) {
-				map.panTo(e.latlng), 11;}
-			function zoomIn (e) {
-				map.zoomIn(4);}
-			function zoomOut (e) {
-				map.zoomOut(6);}
-			function setView (e) {
-				map.setView([61.5, 23.75], 13);}
+		function showCoordinates (e) {
+			prompt(e.latlng, e.latlng);}
+		function centerMap (e) {
+			map.panTo(e.latlng), 11;}
+		function zoomIn (e) {
+			map.zoomIn(4);}
+		function zoomOut (e) {
+			map.zoomOut(6);}
+		function setView (e) {
+			map.setView([61.5, 23.75], 13);}
 
 var baseMaps = {
 	"OSM": OSM,
