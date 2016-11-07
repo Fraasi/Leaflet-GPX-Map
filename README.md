@@ -5,7 +5,7 @@
 Took me about two months to code, starting from zero knowledge about javascript.
 Now, around six months later, that I know a little bit about coding and leaflet finally outed version 1.0, I decided to clean and rewrite some of the code and publish it.
 
-I'm still very much a beginner hobbyist at javascript, so all comments are much appreciated.
+I'm still very much a beginner hobbyist at javascript, so all improvement ideas are much appreciated.
 
 Few example GPX tracks included.
 
