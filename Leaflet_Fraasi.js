@@ -14,13 +14,16 @@ var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://thunderforest.com/">Thunderforest</a>'}),
 	
 	darkmap = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
+	
+	esri = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: '&copy;<a href="http://www.esri.com/">Esri</a>, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP'});
 	
 var map = L.map('map', {
 	fullscreenControl : {pseudoFullscreen: true},
 	center: [61.50, 23.75],
 	zoom: 11,
-	layers: [OSM],
+	layers: [OSM_DE],
 	contextmenu: true,
 	contextmenuWidth: 125, maxZoom: 19,
     contextmenuItems: [{
@@ -65,7 +68,8 @@ var baseMaps = {
 	"OSM_DE": OSM_DE,
 	"Landscape": landMap,
 	"Cyclemap": cyclemap,
-	"Darkmap": darkmap
+	"Darkmap": darkmap,
+	"Esri (satellite)": esri
 };
 L.control.layers(baseMaps).addTo(map);
 
@@ -172,7 +176,7 @@ var gpxdir = "gpx/";
 var gpxfiles =  [
 	'2015-08-25T14-25-12_Reuharinniemi.gpx',
 	'2015-08-03T12-07-29_Pyhajarvikierros.gpx',
-	'2016-07-30T15-18-58_Suolijarvi.gpx'
+	'2016-07-30T15-18-58_Suolijarvi.gpx'.
 	];
 
 //The great loopdidoo had to be put into separate functions to get gpxOnClick working for chosen file
