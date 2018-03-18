@@ -78,7 +78,25 @@ L.control.layers(baseMaps).addTo(map);
 var osmGeocoder = new L.Control.OSMGeocoder({
 	collapsed: false,
 	position: 'bottomleft',
-	text: 'Haje!',
+	text: String.fromCharCode('0x2315'),
+	callback: function (results) {
+		var bbox = results[0].boundingbox,
+			first = new L.LatLng(bbox[0], bbox[2]),
+			second = new L.LatLng(bbox[1], bbox[3]),
+			bounds = new L.LatLngBounds([first, second]);
+		this._map.fitBounds(bounds);
+
+		var place = results[0];
+
+		L.marker([place.lat, place.lon], { title: place.display_name.split(',')[0] })
+		.bindPopup(
+			`<div style="text-align:center;">
+				${place.type.replace(place.type.charAt(0), place.type.charAt(0).toUpperCase())}, ${place.class} <br><br>
+				${place.display_name} <br><br>
+				${results[0].lat + ', ' + results[0].lon}
+			</div>`
+		).addTo(map);
+	}
 });
 map.addControl(osmGeocoder);
 
@@ -176,7 +194,7 @@ var gpxdir = "gpx/";
 var gpxfiles =  [
 	'2015-08-25T14-25-12_Reuharinniemi.gpx',
 	'2015-08-03T12-07-29_Pyhajarvikierros.gpx',
-	'2016-07-30T15-18-58_Suolijarvi.gpx'.
+	'2016-07-30T15-18-58_Suolijarvi.gpx'
 	];
 
 //The great loopdidoo had to be put into separate functions to get gpxOnClick working for chosen file
