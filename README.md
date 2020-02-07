@@ -3,7 +3,7 @@
 
 
 ### v3 Todo
-* remove footer
+* remove footer & title
 * sidebar configuration + button
 * clean up css
 * remove fullscreen button
@@ -22,7 +22,7 @@ https://github.com/k4r573n/leaflet-control-osm-geocoder
 GPX plugin for Leaflet
 https://github.com/mpetazzoni/leaflet-gpx
 
-Leaflet.MiniMap
+Leaflet-MiniMap
 https://github.com/Norkart/Leaflet-MiniMap
 
 Leaflet.fullscreen
@@ -39,6 +39,9 @@ https://github.com/aratcliffe/Leaflet.contextmenu
 
 leaflet-sidebar
 https://github.com/Turbo87/leaflet-sidebar
+
+Leaflet.EasyButton
+https://github.com/CliffCloud/Leaflet.EasyButton
 
 
 ![LeafletMap_pic.png](images/LeafletMap_pic.png)

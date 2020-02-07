@@ -2,7 +2,8 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="UTF-8" name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="shortcut icon" href="images/favicon2000.ico">
 	<title>Leaflet GPX map</title>
 	<!-- leaflet -->
@@ -23,10 +24,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js"></script>
 	<!-- search, find another one? -->
 	<script src="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.js"></script>
-	<link rel="stylesheet" href="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.css" />
+	<link rel="stylesheet"
+		href="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.css" />
 	<!-- context menu -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.css" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-contextmenu/1.4.0/leaflet.contextmenu.min.css" />
 	<!-- measure, find another one? -->
 	<link rel="stylesheet" href="css/leaflet-measure.css">
 	<script src="js/leaflet-measure.min.js"></script>
@@ -37,6 +40,9 @@
 	<!-- sidebar -->
 	<link rel="stylesheet" href="css/L.Control.Sidebar.css">
 	<script src="js/L.Control.Sidebar.js"></script>
+	<!-- easybutton -->
+	<link rel="stylesheet" href="css/easy-button.css">
+	<script src="js/easy-button.js"></script>
 
 	<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
 
@@ -46,42 +52,43 @@
 
 <body>
 	<div id="container">
-		<header id="hedder">
-
+		<!-- <header id="hedder">
 			<button id="showfooter"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></button>
+		</header> -->
+		<section id="sidebar">
+			<div id="track-title">Title</div>
+			<!-- <div id="footer"> -->
+
+				<ul class="track-info">
+
+					<li>Distance:&nbsp;<b><span id="distance"></span>&nbsp;Km </b></li>
+
+					&mdash; <li>Duration:&nbsp;<b><span id="duration"></span> min </b></li>
+
+					&mdash; <li>StopTime:&nbsp;<b><span id="stoptime"></span> min</b></li>
+
+					&mdash; <li>Avg Speed:&nbsp;<b><span id="avgspeed"></span> km/h </b></li>
+
+					</br>
+					<li>Elevation:&nbsp;<b>+<span id="elevation-gain"></span>&nbsp;m, -<span id="elevation-loss"></span>&nbsp;m
+							(net:&nbsp;<span id="elevation-net"></span>&nbsp;m)</b></li>
+
+					&mdash; <li>FileName:&nbsp;<b><span id="fileName"></span> </b></li>
+
+				</ul>
+
+			<!-- </div> -->
+			<hr />
 			<button id="all">Show all</button>
-			<div id="title">Title</div>
 
-		</header>
-		<section id="sidebar"></section>
-		<section id="map"> </section>
-
-		<section id="choosebox">
-			<input type="file" id="choosegpx" onchange="chosenFile()">
-			<div id="nimi">No file chosen. <br> Choose a .gpx file. </div>
+			<div id="choosebox">
+				<input type="file" id="choosegpx" onchange="chosenFile()">
+				<div id="filename">Choose a .gpx file. </div>
+			</div>
 		</section>
 
-		<footer id="footsie">
+		<section id="map"> </section>
 
-			<ul class="info">
-
-				<li>Distance:&nbsp;<b><span id="distance"></span>&nbsp;Km </b></li>
-
-				&mdash; <li>Duration:&nbsp;<b><span id="duration"></span> min </b></li>
-
-				&mdash; <li>StopTime:&nbsp;<b><span id="stoptime"></span> min</b></li>
-
-				&mdash; <li>Avg Speed:&nbsp;<b><span id="avgspeed"></span> km/h </b></li>
-
-				</br>
-				<li>Elevation:&nbsp;<b>+<span id="elevation-gain"></span>&nbsp;m, -<span id="elevation-loss"></span>&nbsp;m
-						(net:&nbsp;<span id="elevation-net"></span>&nbsp;m)</b></li>
-
-				&mdash; <li>FileName:&nbsp;<b><span id="fileName"></span> </b></li>
-
-			</ul>
-
-		</footer>
 		<script src="index.js"></script>
 	</div>
 </body>

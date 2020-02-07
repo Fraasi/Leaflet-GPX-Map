@@ -25,13 +25,13 @@ var map = L.map('map', {
 	zoom: 11,
 	layers: [OSM_DE],
 	contextmenu: true,
-	contextmenuWidth: 125, maxZoom: 19,
+	contextmenuWidth: 150, maxZoom: 19,
     contextmenuItems: [{
         text: 'Show coordinates',
-        callback: showCoordinates
+        callback: (e) => { prompt(e.latlng, `${e.latlng.lat}, ${e.latlng.lng}`); }
 		}, {
         text: 'Center map here',
-        callback: centerMap
+        callback: () => { map.panTo(e.latlng), 11; }
 		}, '-', {
         text: 'Zoom in',
         icon: 'images/zoom-in.png',
@@ -50,10 +50,7 @@ var map = L.map('map', {
 	]
 });
 
-function showCoordinates(e) {
-	prompt(e.latlng, e.latlng);}
-function centerMap(e) {
-	map.panTo(e.latlng), 11;}
+
 function zoomIn() {
 	map.zoomIn(4);}
 function zoomOut() {
@@ -151,20 +148,28 @@ var sidebar = L.control.sidebar('sidebar', {
 });
 map.addControl(sidebar);
 
-//Toggle Footer-box
-var footerButton = document.getElementById('showfooter');
-footerButton.addEventListener('click', function(){
-	var foot = document.getElementById('footsie');
-	var mapHeight = document.getElementById('map');
+// easybutton
+L.easyButton( '<span class="star">&starf;</span>', function(){
+  	sidebar.toggle()
+	},
+	'Toggle track info',
+	{ position: 'bottomright' }
+).addTo(map);
 
-	if(foot.style.display == 'block'){
-		foot.style.display = 'none';
-		mapHeight.style.height = '500px';
-	} else {
-		foot.style.display = 'block';
-		mapHeight.style.height = '420px';
-	}
-});
+//Toggle Footer-box
+// var footerButton = document.getElementById('showfooter');
+// footerButton.addEventListener('click', function(){
+// 	var foot = document.getElementById('footsie');
+// 	var mapHeight = document.getElementById('map');
+
+// 	if(foot.style.display == 'block'){
+// 		foot.style.display = 'none';
+// 		mapHeight.style.height = '500px';
+// 	} else {
+// 		foot.style.display = 'block';
+// 		mapHeight.style.height = '420px';
+// 	}
+// });
 
 // Toggle showall button
 var tracks = {};
@@ -231,10 +236,8 @@ function setInfo(click, upload){
 
 	function _id(id) {return document.getElementById(id);}
 
-	// header info
-	_id('title').textContent = gpxClicked.get_name() + " - " + gpxClicked.get_start_time().toDateString() + ', ' + gpxClicked.get_start_time().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+	_id('track-title').textContent = gpxClicked.get_name() + " - " + gpxClicked.get_start_time().toDateString() + ', ' + gpxClicked.get_start_time().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
 
-	//footer info
 	_id('distance').textContent = gpxClicked.get_distance().toFixed(0) / 1000;
 	_id('duration').textContent = gpxClicked.get_duration_string(gpxClicked.get_moving_time().toFixed(4));
 	_id('avgspeed').textContent = gpxClicked.get_moving_speed().toFixed(0);
