@@ -3,10 +3,7 @@
 
 
 ### v3 Todo
-* remove footer & title
 * sidebar configuration + button
-* clean up css
-* remove fullscreen button
 
 
 Few example GPX tracks included.
@@ -24,9 +21,6 @@ https://github.com/mpetazzoni/leaflet-gpx
 
 Leaflet-MiniMap
 https://github.com/Norkart/Leaflet-MiniMap
-
-Leaflet.fullscreen
-https://github.com/Leaflet/Leaflet.fullscreen
 
 leaflet-measure
 https://github.com/ljagis/leaflet-measure

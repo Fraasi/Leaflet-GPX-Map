@@ -15,10 +15,6 @@
 		crossorigin=""></script>
 	<!-- gpx -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.5.0/gpx.min.js"></script>
-	<!-- fullscreen -->
-	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
-	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
-		rel='stylesheet' />
 	<!-- minimap -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js"></script>
@@ -57,32 +53,27 @@
 		</header> -->
 		<section id="sidebar">
 			<div id="track-title">Title</div>
-			<!-- <div id="footer"> -->
-
 				<ul class="track-info">
 
 					<li>Distance:&nbsp;<b><span id="distance"></span>&nbsp;Km </b></li>
 
-					&mdash; <li>Duration:&nbsp;<b><span id="duration"></span> min </b></li>
+					<li>Duration:&nbsp;<b><span id="duration"></span> min </b></li>
 
-					&mdash; <li>StopTime:&nbsp;<b><span id="stoptime"></span> min</b></li>
+					<li>StopTime:&nbsp;<b><span id="stoptime"></span> min</b></li>
 
-					&mdash; <li>Avg Speed:&nbsp;<b><span id="avgspeed"></span> km/h </b></li>
+					<li>Avg Speed:&nbsp;<b><span id="avgspeed"></span> km/h </b></li>
 
-					</br>
 					<li>Elevation:&nbsp;<b>+<span id="elevation-gain"></span>&nbsp;m, -<span id="elevation-loss"></span>&nbsp;m
 							(net:&nbsp;<span id="elevation-net"></span>&nbsp;m)</b></li>
 
-					&mdash; <li>FileName:&nbsp;<b><span id="fileName"></span> </b></li>
-
+					<li>FileName:&nbsp;<b><span id="fileName"></span> </b></li>
 				</ul>
 
-			<!-- </div> -->
 			<hr />
 			<button id="all">Show all</button>
 
 			<div id="choosebox">
-				<input type="file" id="choosegpx" onchange="chosenFile()">
+				<input type="file" id="choosegpx">
 				<div id="filename">Choose a .gpx file. </div>
 			</div>
 		</section>
