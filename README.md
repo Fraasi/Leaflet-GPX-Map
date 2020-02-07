@@ -2,8 +2,12 @@
 ### Leaflet map to show gpx tracks with some additional plugins.
 
 
-Took me about two months to code, starting from zero knowledge about javascript.
-Now, around six months later, that I know a little bit about coding and leaflet finally outed version 1.0, I decided to clean and rewrite some of the code and publish it.
+### v3 Todo
+* remove footer
+* sidebar configuration + button
+* clean up css
+* remove fullscreen button
+
 
 Few example GPX tracks included.
 
@@ -32,6 +36,9 @@ https://github.com/MrMufflon/Leaflet.Elevation
 
 Leaflet.contextmenu
 https://github.com/aratcliffe/Leaflet.contextmenu
+
+leaflet-sidebar
+https://github.com/Turbo87/leaflet-sidebar
 
 
 ![LeafletMap_pic.png](images/LeafletMap_pic.png)

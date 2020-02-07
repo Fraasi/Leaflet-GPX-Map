@@ -2,23 +2,23 @@
 var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 18,
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
-	
+
 	OSM_DE = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
 	maxZoom: 18,
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright/de">OpenStreetMap</a>'}),
-	
+
 	landMap = L.tileLayer('https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://thunderforest.com/">Thunderforest</a>'}),
-	
+
 	cyclemap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://thunderforest.com/">Thunderforest</a>'}),
-	
+
 	darkmap = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}),
-	
+
 	esri = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: '&copy;<a href="http://www.esri.com/">Esri</a>, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP'});
-	
+
 var map = L.map('map', {
 	fullscreenControl : {pseudoFullscreen: true},
 	center: [61.50, 23.75],
@@ -62,7 +62,7 @@ function goHome() {
 	map.setView([61.5, 23.75], 13);}
 function uploadGPX() {
 	chosengpx.click();}
-				
+
 var baseMaps = {
 	"OSM": OSM,
 	"OSM_DE": OSM_DE,
@@ -110,7 +110,7 @@ L.control.measure({primaryLengthUnit: 'meters',
 	position: 'bottomleft'
 }).addTo(map);
 
-//Minimap		
+//Minimap
 var osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 var osmMini = new L.TileLayer(osmUrl, {
 	minZoom: 0,
@@ -142,7 +142,14 @@ var el = L.control.elevation({
 	position: "bottomright",
 	collapsed: true
 });
-el.addTo(map);	
+el.addTo(map);
+
+// sidebar
+var sidebar = L.control.sidebar('sidebar', {
+	closeButton: true,
+	position: 'left'
+});
+map.addControl(sidebar);
 
 //Toggle Footer-box
 var footerButton = document.getElementById('showfooter');
@@ -189,7 +196,7 @@ var icons =  {
     shadowUrl: 'images/pin-shadow.png'
 	};
 
-// Few example GPX files, I have about 30 tracks here at the moment...	
+// Few example GPX files, I have about 30 tracks here at the moment...
 var gpxdir = "gpx/";
 var gpxfiles =  [
 	'2015-08-25T14-25-12_Reuharinniemi.gpx',
@@ -213,27 +220,27 @@ function loopdidoo() {
 	}
 }
 
-function gpxOnClick(gpx) {	
-	gpx.addEventListener("click", setInfo);	 
+function gpxOnClick(gpx) {
+	gpx.addEventListener("click", setInfo);
 };
 
-function setInfo(click, upload){	
+function setInfo(click, upload){
 	var gpxClicked = upload || click.target;
 	map.fitBounds(gpxClicked.getBounds());
 	setElevationData(gpxClicked);
 
 	function _id(id) {return document.getElementById(id);}
 
-	// header info 
+	// header info
 	_id('title').textContent = gpxClicked.get_name() + " - " + gpxClicked.get_start_time().toDateString() + ', ' + gpxClicked.get_start_time().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
-	
+
 	//footer info
 	_id('distance').textContent = gpxClicked.get_distance().toFixed(0) / 1000;
 	_id('duration').textContent = gpxClicked.get_duration_string(gpxClicked.get_moving_time().toFixed(4));
 	_id('avgspeed').textContent = gpxClicked.get_moving_speed().toFixed(0);
 	_id('elevation-gain').textContent = gpxClicked.get_elevation_gain().toFixed(0);
 	_id('elevation-loss').textContent = gpxClicked.get_elevation_loss().toFixed(0);
-	_id('elevation-net').textContent  = gpxClicked.get_elevation_gain().toFixed(0) - gpxClicked.get_elevation_loss().toFixed(0);	
+	_id('elevation-net').textContent  = gpxClicked.get_elevation_gain().toFixed(0) - gpxClicked.get_elevation_loss().toFixed(0);
 	var stoptimee = gpxClicked.get_total_time() - gpxClicked.get_moving_time();
 	// _id('stoptime').textContent = (stoptimee * 1.66667e-5).toFixed();
 	_id('stoptime').textContent = (stoptimee / 60000).toFixed();
@@ -246,12 +253,12 @@ function setElevationData(gpx){
 		for (var trackLayer in gpx._layers[gpxLayer]._layers){
 			el.addData(gpx._layers[gpxLayer]._layers[trackLayer]);
 		}
-	}	
+	}
 };
 
 //Choose files
 var chosengpx = document.getElementById("choosegpx");
- 	      
+
 function chosenFile(){
 	var gpx = false;
 

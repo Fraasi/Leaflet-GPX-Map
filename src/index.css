@@ -3,13 +3,24 @@
 	position: relative;
 	right: -10px;
 }
+.leaflet-sidebar .close { /* sidebar close button fix */
+	z-index: 800;
+}
 body, button{
 	font-family: "adobe garamond";
 }
 body{
-	width: 99%;
-	height: 99%;
+	/* width: 99%; */
+	/* height: 99%; */
 	background-color: #D3D3D3;
+	padding: 0;
+	margin: 0;
+}
+html, body, #map {
+	height: 100%;
+}
+body > #sidebar {
+	display: none;
 }
 #container {
 	position: relative;
@@ -29,7 +40,7 @@ header{
 #map, footer, header{
 	border: 3px solid black;
 	box-shadow: 0px 0px 5px 1px ;
-	background-color:  #C0C0C0; 
+	background-color:  #C0C0C0;
 	border-radius: 5px;
 }
 #map{
@@ -37,21 +48,21 @@ header{
 	width: 98%;
 	margin-bottom:2px;
 	margin-top:5px;
-} 
+}
 #choosebox{
 	position: absolute;
 	display: none;
 }
 #nimi{
 	margin-top: 8px;
-	padding: 5px;	 
+	padding: 5px;
 	height: 100%;
 	width: 100%;
 	overflow: auto;
 }
 #choosegpx{
 	width: 105%;
-} 
+}
 button{
 	float:right;
 	position: static;
