@@ -1,0 +1,23 @@
+{
+  "name": "leaflet-gpx-map",
+  "version": "0.0.1",
+  "description": "Took me about two months to code, starting from zero knowledge about javascript.\r Now, around six months later, that I know a little bit about coding and leaflet finally outed version 1.0, I decided to clean and rewrite some of the code and publish it.",
+  "main": "Leaflet_Fraasi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fraasi/Leaflet-GPX-Map.git"
+  },
+  "keywords": [],
+  "author": "Fraasi <fraasi.gh@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fraasi/Leaflet-GPX-Map/issues"
+  },
+  "homepage": "https://github.com/Fraasi/Leaflet-GPX-Map#readme",
+  "dependencies": {
+    "leaflet": "^1.6.0"
+  }
+}

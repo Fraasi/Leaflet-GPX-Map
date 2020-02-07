@@ -1,0 +1,82 @@
+.leaflet-control-scale  {	/* scale fix */
+	text-align: center;
+	position: relative;
+	right: -10px;
+}
+body, button{
+	font-family: "adobe garamond";
+}
+body{
+	width: 99%;
+	height: 99%;
+	background-color: #D3D3D3;
+}
+#container {
+	position: relative;
+	width: 80%;
+	margin: 4% auto;
+	overflow: hidden;
+	padding: 4px;
+}
+header{
+	height: 22px;
+	width: 97.7%;
+	padding-left: 2px;
+	padding-top: 4px;
+	font-weight: bold;
+	text-align: center;
+}
+#map, footer, header{
+	border: 3px solid black;
+	box-shadow: 0px 0px 5px 1px ;
+	background-color:  #C0C0C0; 
+	border-radius: 5px;
+}
+#map{
+	height: 500px;
+	width: 98%;
+	margin-bottom:2px;
+	margin-top:5px;
+} 
+#choosebox{
+	position: absolute;
+	display: none;
+}
+#nimi{
+	margin-top: 8px;
+	padding: 5px;	 
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+#choosegpx{
+	width: 105%;
+} 
+button{
+	float:right;
+	position: static;
+	margin-top:-1.513px;
+	margin-right: 3px;
+	border-radius: 3px;
+}
+button:focus {
+	outline:none
+}
+footer{
+	width: 98%;
+	height: 70px;
+	margin-top: 4px;
+	display: none;
+}
+.info{
+	text-align: center;
+	padding: 0;
+}
+li {
+	line-height: 130%;
+	display: inline;
+	list-style-type: none;
+}
+#all {
+	width: 75px;
+}
