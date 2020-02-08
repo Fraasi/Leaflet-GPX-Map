@@ -34,8 +34,10 @@
 	<link rel="stylesheet" href="css/leaflet.elevation-0.0.4-d3v4.css" />
 	<script type="text/javascript" src="js/leaflet.elevation-0.0.4-d3v4.min.js"></script>
 	<!-- sidebar -->
-	<link rel="stylesheet" href="css/L.Control.Sidebar.css">
-	<script src="js/L.Control.Sidebar.js"></script>
+	<!-- <link rel="stylesheet" href="css/L.Control.Sidebar.css">
+	<script src="js/L.Control.Sidebar.js"></script> -->
+	<link rel="stylesheet" href="css/leaflet-sidebar.min.css">
+	<script src="js/leaflet-sidebar.min.js"></script>
 	<!-- easybutton -->
 	<link rel="stylesheet" href="css/easy-button.css">
 	<script src="js/easy-button.js"></script>
@@ -51,34 +53,49 @@
 		<!-- <header id="hedder">
 			<button id="showfooter"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></button>
 		</header> -->
-		<section id="sidebar">
-			<div id="track-title">Title</div>
-				<ul class="track-info">
 
-					<li>Distance:&nbsp;<b><span id="distance"></span>&nbsp;Km </b></li>
+		<section id="sidebar" class="sidebar collapsed">
+			<div class="sidebar-tabs">
+				<ul role="tablist">
+					<li><a href="#track-info" role="tab">asa<i class="fa fa-bars"></i></a></li>
 
-					<li>Duration:&nbsp;<b><span id="duration"></span> min </b></li>
-
-					<li>StopTime:&nbsp;<b><span id="stoptime"></span> min</b></li>
-
-					<li>Avg Speed:&nbsp;<b><span id="avgspeed"></span> km/h </b></li>
-
-					<li>Elevation:&nbsp;<b>+<span id="elevation-gain"></span>&nbsp;m, -<span id="elevation-loss"></span>&nbsp;m
-							(net:&nbsp;<span id="elevation-net"></span>&nbsp;m)</b></li>
-
-					<li>FileName:&nbsp;<b><span id="fileName"></span> </b></li>
+					<li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
+					<li><a href="https://github.com/fraasi/leaflet-gpx-map" role="tab" target="_blank">fr<i
+								class="fa fa-github"></i></a></li>
 				</ul>
 
-			<hr />
-			<button id="all">Show all</button>
+				<ul role="tablist">
+					<li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+				</ul>
+			</div>
+			<div class="sidebar-content">
+				<div class="sidebar-pane" id="track-info">
 
-			<div id="choosebox">
-				<input type="file" id="choosegpx">
-				<div id="filename">Choose a .gpx file. </div>
+
+					<h3 id="track-title">Title</h3>
+
+					<ul class="track-info">
+						<li>Distance:&nbsp;<b><span id="distance"></span>&nbsp;Km </b></li>
+						<li>Duration:&nbsp;<b><span id="duration"></span> min </b></li>
+						<li>StopTime:&nbsp;<b><span id="stoptime"></span> min</b></li>
+						<li>Avg Speed:&nbsp;<b><span id="avgspeed"></span> km/h </b></li>
+						<li>Elevation:&nbsp;<b>+<span id="elevation-gain"></span>&nbsp;m, -<span id="elevation-loss"></span>&nbsp;m
+								(net:&nbsp;<span id="elevation-net"></span>&nbsp;m)</b></li>
+						<li>FileName:&nbsp;<b><span id="fileName"></span> </b></li>
+					</ul>
+
+					<hr />
+					<button id="show-all">Show all</button>
+
+					<div id="choosebox">
+						<input type="file" id="choosegpx">
+						<div id="filename">Choose a .gpx file. </div>
+					</div>
+				</div>
 			</div>
 		</section>
+		<section id="map" class="sidebar-map"> </section>
 
-		<section id="map"> </section>
 
 		<script src="index.js"></script>
 	</div>

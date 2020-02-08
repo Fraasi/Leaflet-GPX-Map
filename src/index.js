@@ -48,7 +48,7 @@ const map = L.map('map', {
 	}, {
 		text: 'Zoom out',
 		icon: 'images/zoom-out.png',
-		callback: () => { map.zoomIn(5); }
+		callback: () => { map.zoomOut(5); }
 	}, '-', {
 		text: 'Upload .GPX file',
 		callback: () => { chooseGpxEl.click(); }
@@ -128,9 +128,6 @@ L.control.scale({
 	maxWidth: 150
 }).addTo(map);
 
-//Elevation box
-// L.Browser.touch = L.Browser.mobile; // temp fix to get elevation hover working on chrome
-
 const elevation = L.control.elevation({
 	theme: "steelblue-theme",
 	width: 300,
@@ -143,9 +140,10 @@ elevation.addTo(map);
 // sidebar
 const sidebar = L.control.sidebar('sidebar', {
 	closeButton: true,
-	position: 'left'
+	position: 'right'
 });
 map.addControl(sidebar);
+
 
 // easybutton
 L.easyButton('<span class="star">&starf;</span>', function () {
@@ -157,22 +155,23 @@ L.easyButton('<span class="star">&starf;</span>', function () {
 
 // Toggle showall button
 const tracks = {};
-const showAll = document.getElementById("all");
-showAll.onclick = function () {
+const showAllButton = document.getElementById("show-all");
+showAllButton.addEventListener('click', function () {
+	console.log(tracks)
 	for (let trackId in tracks) {
 		const gpx = tracks[trackId];
-		if (showAll.textContent === 'Show all') {
+		if (this.textContent === 'Show all') {
 			map.addLayer(gpx);
 		} else {
 			map.removeLayer(gpx);
 		}
 	}
-	if (showAll.textContent === 'Show all') {
-		showAll.textContent = 'Hide all';
+	if (this.textContent === 'Show all') {
+		this.textContent = 'Hide all';
 	} else {
-		showAll.textContent = 'Show all';
+		this.textContent = 'Show all';
 	}
-};
+});
 
 const tampere = L.marker([61.4985, 23.764]).bindPopup('This is Tampere.<br>Choose routes in layer control on the right. <br>Click route on the map to get info into the hidden footer.<br>Right click to load your own GPX and for some other options.<br>Use all the plugins.').addTo(map);
 

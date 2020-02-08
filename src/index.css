@@ -7,9 +7,17 @@
 .leaflet-sidebar .close { /* sidebar close button fix */
 	z-index: 800;
 }
-
-.leaflet-sidebar.left.visible { /* prevent 100% */
-	max-width: 450px;
+/* .sidebar, .sidebar-tabs {
+	top: 222px;
+	bottom: 222px;
+} */
+.sidebar.collapsed {
+	height: 50px;
+	top: 50%;
+	bottom: 150px;
+}
+.sidebar { /* prevent 100% */
+	max-width: 400px;
 }
 
 body, button{
@@ -28,7 +36,7 @@ html, body, #container, #map {
 }
 
 body > #sidebar {
-	display: none;
+	/* display: none; */
 }
 
 .star {
@@ -66,6 +74,3 @@ li {
 	list-style-type: circle;
 }
 
-#all {
-	width: 75px;
-}
