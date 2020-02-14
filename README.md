@@ -3,7 +3,7 @@
 
 
 ### v3 Todo
-* sidebar configuration + button
+
 
 
 Few example GPX tracks included.
@@ -12,6 +12,8 @@ Few example GPX tracks included.
 
 
 [Leaflet](https://leafletjs.com) & Plugins used:
+
+https://github.com/perliedman/leaflet-control-geocoder
 
 Leaflet Control OSM Geocoder
 https://github.com/k4r573n/leaflet-control-osm-geocoder
@@ -31,8 +33,8 @@ https://github.com/MrMufflon/Leaflet.Elevation
 Leaflet.contextmenu
 https://github.com/aratcliffe/Leaflet.contextmenu
 
-leaflet-sidebar
-https://github.com/Turbo87/leaflet-sidebar
+leaflet.sidebar
+https://github.com/daswick/Leaflet.Sidebar
 
 Leaflet.EasyButton
 https://github.com/CliffCloud/Leaflet.EasyButton

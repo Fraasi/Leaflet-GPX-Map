@@ -4,20 +4,10 @@
 	right: -10px;
 }
 
-.leaflet-sidebar .close { /* sidebar close button fix */
-	z-index: 800;
-}
-/* .sidebar, .sidebar-tabs {
-	top: 222px;
-	bottom: 222px;
-} */
-.sidebar.collapsed {
-	height: 50px;
-	top: 50%;
-	bottom: 150px;
-}
-.sidebar { /* prevent 100% */
-	max-width: 400px;
+.sidebar-layer { /* sidebar fixes  */
+	/* width: fit-content; */
+	padding: 10px;
+	height: 64vh;
 }
 
 body, button{
@@ -35,20 +25,12 @@ html, body, #container, #map {
 	height: 100vh;
 }
 
-body > #sidebar {
-	/* display: none; */
-}
-
-.star {
-	font-size: 1.5em;
-}
-
-#choosebox{
-	position: absolute;
+/* #choosebox {
+	position: relative;
 	bottom: 10px;
-}
+} */
 
-#filename{
+#filename {
 	margin-top: 8px;
 	padding: 5px;
 	height: 100%;
@@ -56,7 +38,7 @@ body > #sidebar {
 	overflow: auto;
 }
 
-button{
+button {
 	float:right;
 	position: static;
 	margin-top:-1.513px;
@@ -64,13 +46,7 @@ button{
 	border-radius: 3px;
 }
 
-.track-info{
-	/* text-align: center; */
+#track-date, #track-title, .track-info {
 	padding: 0;
+	margin: 0;
 }
-
-li {
-	line-height: 1.5em;
-	list-style-type: circle;
-}
-

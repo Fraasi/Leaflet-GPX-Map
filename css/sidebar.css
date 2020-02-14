@@ -1,0 +1,40 @@
+.sidebar-source {
+	display: none;
+}
+.leaflet-sidebar {
+	width: 400px;
+	display: flex;
+}
+.sidebar-layer {
+	background: white;
+	border: 2px solid #BAB3AD;
+	border-radius: 6px;
+	width: 95%;
+}
+.sidebar-header {
+	overflow: hidden;
+}
+.sidebar-body {
+	overflow: auto;
+}
+.sidebar-content {
+	overflow: hidden;
+}
+.sidebar-footer {
+	bottom: 0;
+	right: 0;
+	left: 0;
+	border-radius: 0 0 4px 4px;
+	overflow: hidden;
+}
+.close-button {
+	margin: 0.5cm -2px 0 -2px;
+	border: 2px solid #BAB3AD;
+	height: 4em;
+	font-size: 14px;
+	color: dimgray;
+	background: white;
+}
+.close-button:hover {
+	cursor: pointer;
+}

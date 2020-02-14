@@ -139,19 +139,20 @@ elevation.addTo(map);
 
 // sidebar
 const sidebar = L.control.sidebar('sidebar', {
-	closeButton: true,
-	position: 'right'
-});
-map.addControl(sidebar);
+	showHeader: true,
+	togglePan: true,
+	position: 'topleft'
+})
+sidebar.addTo(map);
 
 
 // easybutton
-L.easyButton('<span class="star">&starf;</span>', function () {
-	sidebar.toggle()
-},
-	'Toggle track info',
-	{ position: 'bottomright' }
-).addTo(map);
+// L.easyButton('<span class="star">&starf;</span>', function () {
+// 	sidebar.toggle()
+// },
+// 	'Toggle track info',
+// 	{ position: 'bottomright' }
+// ).addTo(map);
 
 // Toggle showall button
 const tracks = {};
@@ -220,7 +221,8 @@ function setTrackInfo(click, upload) {
 
 	function _id(id) { return document.getElementById(id); }
 
-	_id('track-title').textContent = gpxClicked.get_name() + " - " + gpxClicked.get_start_time().toDateString() + ', ' + gpxClicked.get_start_time().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' });
+	_id('track-title').textContent = gpxClicked.get_name();
+	_id('track-date').textContent = gpxClicked.get_start_time().toDateString() + ', ' + gpxClicked.get_start_time().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' });
 
 	_id('distance').textContent = gpxClicked.get_distance().toFixed(0) / 1000;
 	_id('duration').textContent = gpxClicked.get_duration_string(gpxClicked.get_moving_time().toFixed(4));

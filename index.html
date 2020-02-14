@@ -34,15 +34,12 @@
 	<link rel="stylesheet" href="css/leaflet.elevation-0.0.4-d3v4.css" />
 	<script type="text/javascript" src="js/leaflet.elevation-0.0.4-d3v4.min.js"></script>
 	<!-- sidebar -->
-	<!-- <link rel="stylesheet" href="css/L.Control.Sidebar.css">
-	<script src="js/L.Control.Sidebar.js"></script> -->
-	<link rel="stylesheet" href="css/leaflet-sidebar.min.css">
-	<script src="js/leaflet-sidebar.min.js"></script>
-	<!-- easybutton -->
-	<link rel="stylesheet" href="css/easy-button.css">
-	<script src="js/easy-button.js"></script>
+	<link rel="stylesheet" href="css/sidebar.css">
+	<script src="js/sidebar.js"></script>
 
-	<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+	<!-- easybutton -->
+	<!-- <link rel="stylesheet" href="css/easy-button.css">
+	<script src="js/easy-button.js"></script> -->
 
 	<link rel="stylesheet" href="index.css" />
 
@@ -50,30 +47,14 @@
 
 <body>
 	<div id="container">
-		<!-- <header id="hedder">
-			<button id="showfooter"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></button>
-		</header> -->
 
-		<section id="sidebar" class="sidebar collapsed">
-			<div class="sidebar-tabs">
-				<ul role="tablist">
-					<li><a href="#track-info" role="tab">asa<i class="fa fa-bars"></i></a></li>
-
-					<li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
-					<li><a href="https://github.com/fraasi/leaflet-gpx-map" role="tab" target="_blank">fr<i
-								class="fa fa-github"></i></a></li>
-				</ul>
-
-				<ul role="tablist">
-					<li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
-				</ul>
-			</div>
-			<div class="sidebar-content">
-				<div class="sidebar-pane" id="track-info">
-
-
-					<h3 id="track-title">Title</h3>
-
+		<section id="sidebar" class="sidebar">
+			<div class="sidebar-source">
+				<div class="sidebar-header">
+					<h2 id="track-title">Track Title</h2>
+					<h3 id="track-date"></h3>
+				</div>
+				<div class="sidebar-content">
 					<ul class="track-info">
 						<li>Distance:&nbsp;<b><span id="distance"></span>&nbsp;Km </b></li>
 						<li>Duration:&nbsp;<b><span id="duration"></span> min </b></li>
@@ -86,16 +67,17 @@
 
 					<hr />
 					<button id="show-all">Show all</button>
-
 					<div id="choosebox">
 						<input type="file" id="choosegpx">
-						<div id="filename">Choose a .gpx file. </div>
+						<div id="gpxname">Choose a .gpx file.</div>
 					</div>
 				</div>
+				<div class="sidebar-footer"></div>
+
 			</div>
 		</section>
-		<section id="map" class="sidebar-map"> </section>
 
+		<section id="map" class='sidebar-map'> </section>
 
 		<script src="index.js"></script>
 	</div>

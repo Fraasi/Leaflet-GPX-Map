@@ -17,7 +17,5 @@
     "url": "https://github.com/Fraasi/Leaflet-GPX-Map/issues"
   },
   "homepage": "https://github.com/Fraasi/Leaflet-GPX-Map#readme",
-  "dependencies": {
-    "leaflet": "^1.6.0"
-  }
+  "dependencies": {}
 }
